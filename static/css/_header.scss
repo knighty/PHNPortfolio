@@ -1,0 +1,125 @@
+x-header {
+    padding: 1em 0;
+    padding-bottom: 0.5em;
+    //border-bottom: 5px solid #ccc;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            height: 1.6em;
+            display: block;
+        }
+
+        &:before,
+        &:after {
+            height: 6px;
+            background: var(--accent-color);
+            width: 4em;
+            content: " ";
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 3px #d3d3d3;
+        }
+
+        &:before {
+            border-top-left-radius: 1em;
+            border-bottom-left-radius: 1em;
+        }
+
+        &:after {
+            border-top-right-radius: 1em;
+            border-bottom-right-radius: 1em;
+        }
+
+        span {
+            border-radius: 0.35em;
+            font-size: 0.8em;
+            color: #fff;
+            padding: 0.4em 2em;
+            font-weight: bold;
+            background: var(--accent-color);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 3px #d3d3d3;
+        }
+    }
+
+    grid-area: header;
+    text-align: center;
+
+    h1,
+    h2 {
+        text-transform: uppercase;
+        //font-weight: bold;
+        font-family: $font_header;
+    }
+
+    h1 {
+        font-size: 5em;
+        color: var(--text-color-strong);
+        position: relative;
+
+        /*--angle: -7.4deg;
+        --offset: 2em;
+        --gap: 0.05em;
+        --gutter:3px;
+        --col1: #333;
+        --col2: #666;
+        background: repeating-linear-gradient(
+            var(--angle),
+            var(--col1) 0em,
+            var(--col1) var(--offset),
+            transparent calc(var(--offset) + var(--gutter)),
+            transparent calc(var(--offset) + var(--gap) - var(--gutter)),
+            var(--col2) calc(var(--offset) + var(--gap)),
+            var(--col2) 100em
+        );*/
+        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+
+        &::before {
+            position: absolute;
+            left: 7px;
+            top: 7px;
+            bottom: 0;
+            right: 0;
+            content: "PETER H. NGUYEN";
+            $col1: rgba(0, 0, 0, 0.1);
+            $col2: rgba(0, 0, 0, 0.3);
+            /*background: repeating-linear-gradient(30deg, $col1 0, $col1 3px, $col2 4px, $col2 6px, $col1 7px);*/
+            background: linear-gradient(transparent, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        }
+
+        &::after {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            bottom: 0;
+            right: 0;
+            content: "PETER H. NGUYEN";
+            --angle: 180deg;
+            --offset: 0.4em;
+            --gap: 0.05em;
+            --col1: #666;
+            --col2: #333;
+            /*background: repeating-linear-gradient(
+                var(--angle),
+                var(--col1) 0em,
+                var(--col1) var(--offset),
+                #a5a5a5 calc(var(--offset) + var(--gap) * 0.5),
+                var(--col2) calc(var(--offset) + var(--gap)),
+                var(--col2) 100em
+            );*/
+            background: repeating-linear-gradient(180deg, #b5b5b5, #000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        }
+    }
+
+    h2 {
+        font-size: 1.2em;
+        color: var(--text-color);
+    }
+}

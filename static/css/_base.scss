@@ -1,0 +1,115 @@
+@use "sass:math";
+
+$mobile_width: 1000px;
+$screen_scale: 1.3;
+
+$font_body: "K2D" !default; // "Bitter";
+$font_header: "Bebas Neue", sans-serif;
+$text_color_normal: #555;
+$text_color_light: #888;
+$text_color_strong: #222;
+$accent_color: #9bce72;
+
+@import "clear";
+
+html {
+    --page-width: 60em;
+    --page-margin: 0.5in;
+    --screen-scale: 1;
+
+    --image-grid-gap: 0.8em;
+
+    --background-color: #ddd;
+    --background-color-2: #fff;
+
+    --text-color-light: #{$text_color_light};
+    --text-color-strong: #{$text_color_strong};
+    --text-color: #{$text_color_normal};
+    --accent-color: #{$accent_color};
+    --divider-light: #ccc;
+
+    --radius-medium: 0.5rem;
+    --radius-small: calc(var(--radius-medium) * 0.6);
+    --radius-large: calc(var(--radius-medium) * 1.5);
+
+    --base-font-size: 16px;
+
+    font-size: calc(var(--base-font-size) * var(--screen-scale));
+
+    @media screen {
+        --screen-scale: #{$screen_scale};
+        --page-margin: 0in;
+    }
+
+    @media screen and (max-width: $mobile_width) {
+        --screen-scale: 1;
+    }
+}
+
+@import "app";
+
+.hidden {
+    display: none !important;
+}
+
+html,
+body {
+    overscroll-behavior: none;
+}
+
+body {
+    border-top: 1em solid var(--accent-color);
+    font-family: $font_body;
+    color: $text_color_normal;
+
+    background: linear-gradient(180deg, var(--background-color), var(--background-color-2));
+    background-size: 100% 60vh;
+    background-repeat: no-repeat;
+}
+
+h1,
+h2,
+h3 {
+    font-family: $font_header;
+}
+
+button {
+    cursor: pointer;
+}
+
+select,
+button,
+input,
+textarea {
+    font-family: inherit;
+    font-size: 1em;
+}
+
+select {
+    padding: 0.5em 0.5em;
+    border: 1px solid #aaa;
+    background: transparent;
+    border-radius: 0.4em;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.button {
+    padding: 0.5em 0.7em;
+    border: 1px solid #aaa;
+    background: transparent;
+    border-radius: 5em;
+    font-size: 1rem;
+    line-height: normal;
+    color: inherit;
+    text-decoration: none;
+}
+
+@page {
+    size: 8.25in 11.75in;
+    $margin: 10mm;
+    margin: $margin $margin $margin $margin;
+}

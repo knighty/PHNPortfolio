@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "removeComments": true,
+        "sourceMap": true,
+        "moduleResolution": "Node",
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "ESNext",
+        "strictNullChecks": false,
+        "strictFunctionTypes": false,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    },
+    "include": [
+        "static/js/**/*",
+        "data-loader.ts",
+    ],
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ],
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    }
+}

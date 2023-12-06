@@ -1,0 +1,10 @@
+x-app {
+    margin: auto;
+    display: grid;
+    grid-template-rows: min-content min-content 1fr;
+    grid-template-columns: 1fr min(100vw, var(--page-width)) 1fr;
+    grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "l main r";
+}

@@ -1,0 +1,190 @@
+x-index {
+    grid-area: main;
+    background-color: #fff;
+    padding: 1em;
+    border-top: 1px solid #ddd;
+
+    @media all and (min-width: 1000px) {
+        padding: 1em 2em;
+        border-radius: 2em;
+    }
+
+    .intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5em;
+
+        iframe {
+            margin: 1em auto;
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            padding: 0.5em;
+            background: linear-gradient(0deg, #e5e5e5, transparent);
+            border-radius: var(--radius-large);
+            padding-top: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+
+    h1 {
+        color: var(--text-color-strong);
+        font-size: 2em;
+        display: flex;
+        align-items: center;
+        gap: 0.6em;
+        margin: 0 0;
+        text-transform: uppercase;
+        margin-top: 1.2em;
+        text-shadow:
+            1px 1px #fff,
+            0px 3px #e5e5e5;
+
+        &:after,
+        &:before {
+            content: " ";
+            height: 1px;
+            background: var(--divider-light);
+            flex-basis: 1.5em;
+        }
+    }
+
+    section {
+        &:nth-child(even) {
+            h1:after {
+                flex: 1;
+            }
+        }
+
+        &:nth-child(odd) {
+            h1:before {
+                flex: 1;
+            }
+        }
+
+        p {
+            margin: 1em 0;
+            font-size: 0.9em;
+        }
+    }
+
+    ul {
+        --width: 10em;
+        --min-a: 0.7;
+        --max-a: 1.8;
+        --scale: 1;
+        --image-border-width: 4px;
+
+        @media all and (max-width: 1000px) {
+            --scale: 0.7;
+            --image-grid-gap: 0.5em;
+            --image-border-width: 2px;
+        }
+
+        display: flex;
+        flex-wrap: wrap;
+        //display: grid;
+        //grid-template-columns: repeat(auto-fit, minmax(var(--width), 1fr));
+        //justify-content: center;
+        margin: 1em 0;
+        gap: var(--image-grid-gap);
+
+        &::after {
+            content: "";
+            flex: 10;
+        }
+
+        li {
+            --a: calc(clamp(var(--min-a), calc(var(--w) / var(--h)), var(--max-a)));
+
+            display: flex;
+            flex-direction: column;
+            border-radius: var(--radius-small);
+            //transition: box-shadow 0.1s;
+            overflow: hidden;
+            position: relative;
+
+            flex: calc(var(--a) * var(--width) * var(--scale));
+            flex-grow: calc(var(--a));
+            aspect-ratio: var(--a);
+            justify-content: center;
+
+            a {
+                display: contents;
+            }
+
+            &:after,
+            &:before {
+                content: " ";
+                position: absolute;
+                border-radius: var(--radius-small);
+                display: block;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                pointer-events: none;
+            }
+
+            &:after {
+                border: 1px solid #666;
+                box-shadow: 0px 0px 0px var(--image-border-width) #bbb inset;
+                mix-blend-mode: overlay;
+                pointer-events: none;
+            }
+
+            &:before {
+                border: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            &:hover {
+                box-shadow: 0px 0px 0px 3px var(--accent-color);
+            }
+
+            img {
+                aspect-ratio: var(--aspect-ratio);
+                border-top-left-radius: var(--radius-small);
+                border-top-right-radius: var(--radius-small);
+                object-fit: cover;
+                //width: 120%;
+                //height: 12em;
+                flex: 1;
+                max-height: 22em;
+                //margin-left: -10%;
+                transition: transform 0.2s;
+                /*height: 150%;
+                width: 150%;
+                position: absolute;
+                left: -10%;
+                top: -10%;*/
+            }
+
+            span {
+                display: flex;
+                gap: 1em;
+                background: #eee;
+                border-bottom-left-radius: var(--radius-small);
+                border-bottom-right-radius: var(--radius-small);
+                color: #444;
+                display: block;
+                font-size: 0.8em;
+                padding: 0.5em;
+                transition:
+                    background 0.2s,
+                    color 0.2s;
+                display: none;
+            }
+
+            &:hover {
+                background: var(--accent-color);
+
+                span {
+                    background: var(--accent-color);
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

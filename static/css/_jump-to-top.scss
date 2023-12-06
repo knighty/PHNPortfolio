@@ -1,0 +1,24 @@
+x-jump-to-top {
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 1em;
+    padding: 0.5em 1em;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 100em;
+    font-size: 0.9em;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s;
+    background: #fff;
+
+    &:hover {
+        background: #ddd;
+    }
+
+    &.visible {
+        opacity: 1;
+    }
+}

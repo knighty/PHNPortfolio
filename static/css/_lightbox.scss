@@ -1,0 +1,89 @@
+x-lightbox {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: pointer;
+
+    article {
+        position: relative;
+
+        //&:before,
+        &:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: var(--radius-large);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.3) inset;
+            mix-blend-mode: overlay;
+        }
+
+        img {
+            border-radius: var(--radius-large);
+            display: block;
+            max-width: 80vw;
+            max-height: 80vh;
+        }
+    }
+
+    /*article {
+        background-color: #fff;
+        border-radius: var(--radius-large);
+        padding: 1em;
+        width: 80vw;
+        max-width: 70rem;
+
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: min-content 1fr;
+        grid-template-areas:
+            "header header"
+            "img description";
+        gap: 1em;
+        box-shadow: 2px 2px 5px #0000001f;
+
+        img {
+            grid-area: img;
+            max-width: 100%;
+        }
+
+        h1 {
+            grid-area: header;
+            color: var(--text-color-strong);
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+            margin: 0 0;
+            text-transform: uppercase;
+
+            &:after {
+                content: " ";
+                height: 1px;
+                background: var(--divider-light);
+                flex: 1;
+            }
+        }
+
+        p {
+            margin: 1em 0;
+        }
+
+        section {
+            grid-area: description;
+            font-size: 0.9em;
+            text-align: justify;
+        }
+    }*/
+}

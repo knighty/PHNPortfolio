@@ -1,0 +1,192 @@
+type Item = {
+    name: string,
+    description?: string,
+    filename: string,
+    dimensions?: number[]
+}
+
+type Category = {
+    name: string,
+    description?: string,
+    items: Item[]
+}
+
+const data = [
+    {
+        name: "Graphic Design",
+        description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae tincidunt arcu. Donec commodo ultricies rutrum. Donec pellentesque volutpat arcu, nec eleifend enim gravida ut. Maecenas sapien leo, commodo quis commodo eget, posuere vitae mi.</p>
+        <p>Integer id volutpat nulla. Duis pulvinar sodales nisi, at semper eros. Etiam vitae enim molestie, hendrerit nisl et, tincidunt tellus. Praesent posuere placerat interdum. Pellentesque mollis sem eget vestibulum vehicula.</p>`,
+        items: [
+            {
+                name: "EVGA 19th Anniversary",
+                filename: "Graphic Design/00_evga_04.jpg",
+            },
+            {
+                name: "RTX 30 Series",
+                filename: "Graphic Design/01_evga_05.jpg",
+            },
+            {
+                name: "EVGA Nu Audio",
+                filename: require("Graphic Design/02_evga_07.jpg"),
+            },
+            {
+                name: "EVGA",
+                filename: "Graphic Design/03_evga_08.jpg",
+            },
+            {
+                name: "EVGA Vive Cosmos",
+                filename: "Graphic Design/04_evga_09.jpg",
+            },
+            {
+                name: "EVGA King Of the Deep",
+                filename: "Graphic Design/05_evga_01.jpg",
+            },
+        ]
+    },
+    {
+        name: "Illustration",
+        description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae tincidunt arcu. Donec commodo ultricies rutrum. Donec pellentesque volutpat arcu, nec eleifend enim gravida ut. Maecenas sapien leo, commodo quis commodo eget, posuere vitae mi.</p>
+        <p>Integer id volutpat nulla. Duis pulvinar sodales nisi, at semper eros. Etiam vitae enim molestie, hendrerit nisl et, tincidunt tellus. Praesent posuere placerat interdum. Pellentesque mollis sem eget vestibulum vehicula.</p>`,
+        items: [
+            {
+                name: "Riptiders",
+                filename: "Illustration/00_Illus_00.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Illustration/01_Illus_01.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Illustration/02_Illus_02.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Illustration/03_Illus_03.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Illustration/04_Illus_04.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Illustration/05_Illus_05.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Illustration/06_Illus_06.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Illustration/07_Illus_07.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Illustration/08_Illus_08.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Illustration/09_Illus_09.jpg",
+            },
+        ]
+    },
+    {
+        name: "Logo Design",
+        description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae tincidunt arcu. Donec commodo ultricies rutrum. Donec pellentesque volutpat arcu, nec eleifend enim gravida ut. Maecenas sapien leo, commodo quis commodo eget, posuere vitae mi.</p>
+        <p>Integer id volutpat nulla. Duis pulvinar sodales nisi, at semper eros. Etiam vitae enim molestie, hendrerit nisl et, tincidunt tellus. Praesent posuere placerat interdum. Pellentesque mollis sem eget vestibulum vehicula.</p>`,
+        items: [
+            {
+                name: "Brokers",
+                filename: "Logos/00_Brokers.jpg",
+            },
+            {
+                name: "Mired Media",
+                filename: "Logos/01_Mired_01.jpg",
+            },
+            {
+                name: "Antique Starz",
+                filename: "Logos/02_AntiqueStarz.jpg",
+            },
+            {
+                name: "Mired Media",
+                filename: "Logos/03_Mired_02.jpg",
+            },
+            {
+                name: "Corpse Cable",
+                filename: "Logos/04_CorpseCable.jpg",
+            },
+            {
+                name: "Lugersteel",
+                filename: "Logos/05_Lugersteel.jpg",
+            },
+            {
+                name: "Mired Media",
+                filename: "Logos/06_Mired_03.jpg",
+            },
+            {
+                name: "Frenzy",
+                filename: "Logos/07_Frenzy.jpg",
+            },
+            {
+                name: "Lotus Tea House",
+                filename: "Logos/08_LotusTeaHouse.jpg",
+            },
+            {
+                name: "Mired Media",
+                filename: "Logos/09_Mired_04.jpg",
+            },
+            {
+                name: "MNJ",
+                filename: "Logos/10_MNJ.jpg",
+            },
+            {
+                name: "Mired Media",
+                filename: "Logos/11_Mired_06.jpg",
+            },
+        ]
+    },
+    {
+        name: "Visualization",
+        description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae tincidunt arcu. Donec commodo ultricies rutrum. Donec pellentesque volutpat arcu, nec eleifend enim gravida ut. Maecenas sapien leo, commodo quis commodo eget, posuere vitae mi.</p>
+        <p>Integer id volutpat nulla. Duis pulvinar sodales nisi, at semper eros. Etiam vitae enim molestie, hendrerit nisl et, tincidunt tellus. Praesent posuere placerat interdum. Pellentesque mollis sem eget vestibulum vehicula.</p>`,
+        items: [
+            {
+                name: "Brokers",
+                filename: "Visualization/00_Brokers_01.jpg",
+            },
+            {
+                name: "Brokers",
+                filename: "Visualization/01_Brokers_02.jpg",
+            },
+            {
+                name: "Turkey",
+                filename: "Visualization/02_Turkey_01.jpg",
+            },
+            {
+                name: "Lotus",
+                filename: "Visualization/03_Lotus_01.jpg",
+            },
+            {
+                name: "Lotus",
+                filename: "Visualization/04_Lotus_03.jpg",
+            },
+            {
+                name: "Lotus",
+                filename: "Visualization/05_Lotus_02.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Visualization/06_Rip_02.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Visualization/07_Rip_03.jpg",
+            },
+            {
+                name: "Riptiders",
+                filename: "Visualization/08_Rip_01.jpg",
+            },
+        ]
+    },
+   
+] as Category[];
