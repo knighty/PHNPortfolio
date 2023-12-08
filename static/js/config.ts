@@ -1,12 +1,7 @@
 import { Observable, Subject, distinctUntilChanged, filter, fromEvent, map, mapTo, shareReplay, startWith, switchMap, tap } from "rxjs";
-import { AnyDictionary } from "./types";
 import { fromDomEvent } from "./utils";
 
 export const config: Config = {
-    sources: [
-        "/recipes.txt",
-        "/recipes-chicken.txt"
-    ],
 }
 
 type SetConfigTuple = [key: string, value: any];

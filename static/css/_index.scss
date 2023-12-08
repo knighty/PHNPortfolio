@@ -153,7 +153,12 @@ x-index {
                 flex: 1;
                 max-height: 22em;
                 //margin-left: -10%;
-                transition: transform 0.2s;
+                transition: opacity 0.2s;
+                opacity: 0;
+
+                &.loaded {
+                    opacity: 1;
+                }
                 /*height: 150%;
                 width: 150%;
                 position: absolute;

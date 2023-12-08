@@ -34,7 +34,11 @@ export type ScrollEvents = {
     scroll: Event
 }
 
-export type Events = InputEvents & MouseEvents & TouchEvents & StorageEvents & StateEvents & ScrollEvents;
+export type LoadEvents = {
+    load: Event
+}
+
+export type Events = InputEvents & MouseEvents & TouchEvents & StorageEvents & StateEvents & ScrollEvents & LoadEvents;
 
 type ScopedEventOptions<T> = {
     /**

@@ -57,7 +57,7 @@ module.exports = function (source: Buffer) {
     const assetInfo = { sourceFilename: filename }
     
     const options: Options = {
-        filename: "[filename].[size].[contenthash].[ext]",
+        filename: "[name].[size].[contenthash].[ext]",
         quality: 80,
         ...this.getOptions()
     };
