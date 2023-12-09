@@ -5,21 +5,21 @@ $screen_scale: 1.3;
 
 $font_body: "K2D" !default; // "Bitter";
 $font_header: "Bebas Neue", sans-serif;
-$text_color_normal: #555;
-$text_color_light: #888;
-$text_color_strong: #222;
-$accent_color: #9bce72;
+$text_color_normal: #333;
+$text_color_light: #555;
+$text_color_strong: #111;
+$accent_color: #4CAF50;
 
 @import "clear";
 
 html {
-    --page-width: 60em;
+    --page-width: 100em;
     --page-margin: 0.5in;
     --screen-scale: 1;
 
-    --image-grid-gap: 0.8em;
+    --image-grid-gap: calc(clamp(0.8em, 1.5vw, 1.5em));
 
-    --background-color: #ddd;
+    --background-color: #efefe7;
     --background-color-2: #fff;
 
     --text-color-light: #{$text_color_light};

@@ -16,6 +16,7 @@ type Item = {
 
 type Category = {
     name: string,
+    listCssVars?: AnyDictionary,
     cssVars?: AnyDictionary,
     description?: string,
     items: Item[],
@@ -25,11 +26,16 @@ type Category = {
 export default {
     email: `artofphn@gmail.com`,
     youtubeEmbed: `https://www.youtube.com/embed/0Xi1SnC3aBQ?si=0bb8JMil5gKOC99N`,
+    motionGraphicsEmbed: `https://www.youtube.com/embed/BYeTnty4K8Q`,
     intro: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae tincidunt arcu. Donec commodo ultricies rutrum. Donec pellentesque volutpat arcu, nec eleifend enim gravida ut. Maecenas sapien leo, commodo quis commodo eget, posuere vitae mi.</p>
     <p>Integer id volutpat nulla. Duis pulvinar sodales nisi, at semper eros. Etiam vitae enim molestie, hendrerit nisl et, tincidunt tellus. Praesent posuere placerat interdum. Pellentesque mollis sem eget vestibulum vehicula.</p>`,
     categories: [
         {
             name: "Graphic Design",
+            cssVars: {
+                background: `url("${require("/static/images/graphics-background.jpg")}")`
+                //"accent-color": "#009688"
+            },
             description: `<p>Versatility is probably one of the most important characteristics of a designer next to reliability. Being able to design for websites, print, media, in styles ranging for corporate professionalism to trendy markets ensures that no matter what your needs as a business are, they can be accomplished.</p>`,
             items: [
                 {
@@ -131,60 +137,14 @@ export default {
             ]
         },
         {
-            name: "Illustration",
-            cssVars: {
-                width: "16em",
-            },
-            size: "1000x400",
-            description: `<p>Whether or not your company needs professional level illustration work, rest assured that if you needed it, it could be done.</p>`,
-            items: [
-                {
-                    name: "Riptiders",
-                    img: require("/static/images/Illustration/00_Illus_00.jpg?sizes=1000x400"),
-                },
-                {
-                    name: "Riptiders",
-                    img: require("/static/images/Illustration/01_Illus_01.jpg?sizes=1000x400"),
-                },
-                {
-                    name: "Riptiders",
-                    img: require("/static/images/Illustration/02_Illus_02.jpg?sizes=1000x400"),
-                },
-                {
-                    name: "Riptiders",
-                    img: require("/static/images/Illustration/03_Illus_03.jpg?sizes=1000x400"),
-                },
-                {
-                    name: "Riptiders",
-                    img: require("/static/images/Illustration/04_Illus_04.jpg?sizes=1000x400"),
-                },
-                {
-                    name: "Riptiders",
-                    img: require("/static/images/Illustration/05_Illus_05.jpg?sizes=1000x400"),
-                },
-                {
-                    name: "Riptiders",
-                    img: require("/static/images/Illustration/06_Illus_06.jpg?sizes=1000x400"),
-                },
-                {
-                    name: "Riptiders",
-                    img: require("/static/images/Illustration/07_Illus_07.jpg?sizes=1000x400"),
-                },
-                {
-                    name: "Riptiders",
-                    img: require("/static/images/Illustration/08_Illus_08.jpg?sizes=1000x400"),
-                },
-                {
-                    name: "Riptiders",
-                    img: require("/static/images/Illustration/09_Illus_09.jpg?sizes=1000x400"),
-                },
-            ]
-        },
-        {
             name: "Logo Design",
-            cssVars: {
+            listCssVars: {
                 width: "5em",
                 "max-a": 6
+            },
+            cssVars: {
+                background: `url("${require("/static/images/logos-background.jpg")}")`,
+                //"accent-color": "#FF9800"
             },
             size: "1000x150",
             description: `<p>Some logos need to be clean and simple, while some need to stand out against a sea of banality. Whichever extreme or anything in between, you can rest assured that your logo will have the thought and care put into it that it deserves.</p>`,
@@ -297,6 +257,10 @@ export default {
         },
         {
             name: "Visualization",
+            cssVars: {
+                background: `url("${require("/static/images/Visualization/02_Turkey_01.jpg")}")`,
+                //"accent-color": "#2196F3"
+            },
             description: `<p>Sometimes, you just want to see what the product would look like before you spend the time and resources into making it happen. Visualization makes the theoretical a reality, letting you see what your end product could look like in the environment it was meant to be in.</p>`,
             items: [
                 {
@@ -334,6 +298,59 @@ export default {
                 {
                     name: "Riptiders",
                     img: require("/static/images/Visualization/08_Rip_01.jpg?sizes=1000x300"),
+                },
+            ]
+        },
+        {
+            name: "Illustration",
+            cssVars: {
+                //"accent-color": "#E91E63"
+            },
+            listCssVars: {
+                width: "16em",
+            },
+            size: "1000x400",
+            description: `<p>Whether or not your company needs professional level illustration work, rest assured that if you needed it, it could be done.</p>`,
+            items: [
+                {
+                    name: "Riptiders",
+                    img: require("/static/images/Illustration/00_Illus_00.jpg?sizes=1000x400"),
+                },
+                {
+                    name: "Riptiders",
+                    img: require("/static/images/Illustration/01_Illus_01.jpg?sizes=1000x400"),
+                },
+                {
+                    name: "Riptiders",
+                    img: require("/static/images/Illustration/02_Illus_02.jpg?sizes=1000x400"),
+                },
+                {
+                    name: "Riptiders",
+                    img: require("/static/images/Illustration/03_Illus_03.jpg?sizes=1000x400"),
+                },
+                {
+                    name: "Riptiders",
+                    img: require("/static/images/Illustration/04_Illus_04.jpg?sizes=1000x400"),
+                },
+                {
+                    name: "Riptiders",
+                    img: require("/static/images/Illustration/05_Illus_05.jpg?sizes=1000x400"),
+                },
+                {
+                    name: "Riptiders",
+                    img: require("/static/images/Illustration/06_Illus_06.jpg?sizes=1000x400"),
+                },
+                {
+                    name: "Riptiders",
+                    img: require("/static/images/Illustration/07_Illus_07.jpg?sizes=1000x400"),
+                },
+                {
+                    name: "Riptiders",
+                    img: require("/static/images/Illustration/08_Illus_08.jpg?sizes=1000x400"),
+                },
+                {
+                    name: "Riptiders",
+                    img: require("/static/images/Illustration/09_Illus_09.jpg?sizes=1000x400"),
                 },
             ]
         },

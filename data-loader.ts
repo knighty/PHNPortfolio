@@ -99,9 +99,10 @@ module.exports = function (source: Buffer) {
             };`);
         });
     } else {
-        var callback = this.async();
-        this.emitFile(filename, source, null, assetInfo);
-        callback(null, `module.exports = __webpack_public_path__  + "${filename}";`);
+        //var callback = this.async();
+        const fullFilename = interpolateFilename(this, options.filename, context, filename, source, `full`);
+        this.emitFile(fullFilename, source, null, assetInfo);
+        return `module.exports = __webpack_public_path__  + "${fullFilename}";`
     }
 }
 
