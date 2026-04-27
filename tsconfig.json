@@ -9,12 +9,11 @@
         "strictNullChecks": false,
         "strictFunctionTypes": false,
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+		"types": [
+			"node"
+		]
     },
-    "include": [
-        "static/js/**/*",
-        "data-loader.ts",
-    ],
     "exclude": [
         "node_modules",
         "**/node_modules/*"

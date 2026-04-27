@@ -8,7 +8,11 @@ $font_header: "Bebas Neue", sans-serif;
 $text_color_normal: #333;
 $text_color_light: #555;
 $text_color_strong: #111;
-$accent_color: #4CAF50;
+$accent_color_r: 76;
+$accent_color_g: 175;
+$accent_color_b: 80;
+$accent_color_rgb: "#{$accent_color_r}, #{$accent_color_g}, #{$accent_color_b}";
+$accent_color: "rgb(#{$accent_color_rgb})";
 
 @import "clear";
 
@@ -25,7 +29,13 @@ html {
     --text-color-light: #{$text_color_light};
     --text-color-strong: #{$text_color_strong};
     --text-color: #{$text_color_normal};
-    --accent-color: #{$accent_color};
+    --accent-color-r: #{$accent_color_r};
+    --accent-color-g: #{$accent_color_g};
+    --accent-color-b: #{$accent_color_b};
+    --accent-color: rgb(var(--accent-color-r), var(--accent-color-g), var(--accent-color-b));
+    --accent-color-rgb: var(--accent-color-r), var(--accent-color-g), var(--accent-color-b);
+    --accent-color-light: #70ff77;
+    --accent-color-lighter: #64c169;
     --divider-light: #ccc;
 
     --radius-medium: 0.5rem;
@@ -34,11 +44,18 @@ html {
 
     --base-font-size: 16px;
 
+    --dark-background-color: #292922;
+    --light-background-color: var(--background-color);
+
     font-size: calc(var(--base-font-size) * var(--screen-scale));
 
     @media screen {
         --screen-scale: #{$screen_scale};
         --page-margin: 0in;
+    }
+
+    @media screen and (max-width: 1800px) {
+        --screen-scale: 1.1;
     }
 
     @media screen and (max-width: $mobile_width) {
@@ -58,7 +75,6 @@ body {
 }
 
 body {
-    border-top: 1em solid var(--accent-color);
     font-family: $font_body;
     color: $text_color_normal;
 
@@ -98,14 +114,38 @@ a {
 }
 
 .button {
-    padding: 0.5em 0.7em;
-    border: 1px solid #aaa;
-    background: transparent;
-    border-radius: 5em;
-    font-size: 1rem;
-    line-height: normal;
-    color: inherit;
+    background: var(--accent-color);
+    border-radius: 0.3em;
+    display: inline-block;
+    box-shadow:
+        0px -5px inset rgba(0, 0, 0, 0.3),
+        0px 10px #0000000f,
+        0px 0px 0px inset #77c37a;
+    color: #fff;
+    //font-family: 'Bebas Neue';
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    padding-bottom: calc(0.5em + 5px);
     text-decoration: none;
+    transition: box-shadow 0.2s;
+
+    background:
+        linear-gradient(0deg, var(--accent-color), var(--accent-color)) padding-box,
+        linear-gradient(90deg, var(--accent-color), var(--accent-color-light), var(--accent-color)) border-box;
+    border-top: 1px solid transparent;
+
+    i {
+        margin-right: 0.7em;
+    }
+
+    &:hover {
+        cursor: pointer;
+        box-shadow:
+            0px -5px inset rgba(0, 0, 0, 0.3),
+            0px 10px #0000000f,
+            0px 7px 0px inset #77c37a;
+    }
 }
 
 @page {

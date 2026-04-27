@@ -1,0 +1,7 @@
+@mixin absolute($padding: 0) {
+    position: absolute;
+    left: $padding;
+    right: $padding;
+    top: $padding;
+    bottom: $padding;
+}

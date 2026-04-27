@@ -27,7 +27,7 @@ export default class PortfolioApp extends App {
     }
 
     showIndex(state: StateObject) {
-        return this.genericRoute<IndexView>("x-index", "Home");
+        return this.genericRoute<IndexView>("x-index", "DigitalPHN");
     }
 
     getRoutes(): Route<any>[] {

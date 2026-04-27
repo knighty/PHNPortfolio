@@ -1,56 +1,93 @@
 x-nav {
+    $background: #57574b;
     grid-area: nav;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 10;
     transform: translate(0, 0);
+    top: 1em;
+    right: 0;
+    background: linear-gradient(180deg, $background, darken($background, 5%));
+    color: #ddddd4;
+    font-weight: bold;
+    clip-path: polygon(1em 0, 100% 0, 100% 100%, 1em 100%, 0 50%);
+    box-shadow:
+        0px -3px lighten($background, 10%) inset,
+        0px 1px lighten($background, 7%) inset;
+
+    &:before {
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2em;
+   
+        clip-path: polygon(0 0, 1em 0, calc(1em + 1px) 0, 1px 50%, calc(1em + 1px) 100%, 0 100%);
+        background: lighten($background, 10%);
+    }
+
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
     nav {
-        padding: 0.5em 0;
-        padding-top: 0.8em;
-        border-bottom: 1px solid transparent;
-
         ul {
-            font-size: 0.8em;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 2em;
             flex-direction: row;
             text-transform: uppercase;
 
             li {
                 display: block;
                 line-height: 1em;
+
+                &:first-child {
+                    a {
+                        padding-left: 2em !important;
+                    }
+                }
             }
 
             a {
-                color: var(--text-color-light);
                 text-decoration: none;
-                border-bottom: 3px solid transparent;
                 display: block;
                 position: relative;
-                padding-bottom: 0.5em;
+                padding: 1em;
+                transition:
+                    background 0.2s,
+                    color 0.2s,
+                    border-color 0.2s,
+                    box-shadow 0.2s;
+                //border-bottom: 2px solid #000;
 
-                &:after {
-                    content: " ";
-                    display: block;
-                    border-radius: 100em;
-                    height: 5px;
-                    background-color: currentColor;
-                    position: absolute;
-                    bottom: 0;
-                    width: 0%;
-                    transition: width 0.2s;
+                &:hover,
+                &.selected {
+                    color: #fff;
+                    background: var(--accent-color);
+                    border-color: rgba(0, 0, 0, 0.8);
+                    box-shadow: 0px 7px 0px inset var(--accent-color-lighter);
                 }
+            }
+        }
+    }
 
-                &:hover {
-                    color: var(--accent-color);
+    @media all and (max-width: 1000px) { 
+        flex-wrap: wrap;
+        clip-path: none;
+        position: static;
 
-                    &:after {
-                        width: 100%;
-                    }
-                }
+        &:before {
+            display: none;
+        }
+
+        nav {
+            display: contents;
+
+            ul {
+                display: contents;
             }
         }
     }

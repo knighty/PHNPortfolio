@@ -117,16 +117,7 @@ const config: webpack.Configuration = {
     mode: "production",
 };
 
-if (isProduction) {
-    config.mode = 'production';
-} else {
-    config.mode = 'development';
-    config.devtool = 'source-map';
-}
-
-export default config;
-
-/*module.exports = () => {
+module.exports = () => {
     if (isProduction) {
         config.mode = 'production';
     } else {
@@ -135,4 +126,4 @@ export default config;
     }
 
     return config;
-};*/
+};

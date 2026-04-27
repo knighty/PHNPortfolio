@@ -1,6 +1,7 @@
+@import "utils";
+
 x-lightbox {
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.5);
     left: 0;
     top: 0;
     right: 0;
@@ -10,23 +11,137 @@ x-lightbox {
     align-items: center;
     z-index: 100;
     cursor: pointer;
+    --x: 0;
+    --y: 0;
+    --animation: 1;
+    --size: 100vw; //calc(var(--animation) * 100vw);
+    --frame-padding: 2em;
+    --frame-size: 40%;
+    --frame-inset-width: 5px;
+    --frame-inset-color: var(--accent-color);
+    --frame-border-1: #2d2d2d;
+    --frame-border-2: var(--accent-color);
+    --frame-background-1: #070706;
+    --frame-background-2: rgba(0, 0, 0, 0.6);
+
+    transform: translate(0, 0);
+    //clip-path: ellipse(var(--size) var(--size) at 50vw 50vh);
+
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.5s;
+
+    &.visible {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &.image-loaded {
+        img {
+        }
+    }
+
+    a {
+        display: flex;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+        text-decoration: none;
+        justify-content: start;
+        align-items: center;
+        padding: 5vw;
+
+        &.previous {
+            left: 0;
+            width: 40%;
+
+            &:before {
+                content: "\f060";
+            }
+        }
+
+        &.next {
+            right: 0;
+            width: 40%;
+            justify-content: end;
+
+            &:before {
+                content: "\f061";
+            }
+        }
+
+        &:before {
+            font-family: fontawesome;
+            font-size: 7vh;
+            color: #fff;
+            transition: transform 0.2s;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        &:hover {
+            &:before {
+                transform: scale(1.2);
+            }
+        }
+    }
 
     article {
-        position: relative;
+        position: absolute;
+        opacity: calc(1 - var(--animation));
+        transform: translate(calc(var(--x) * var(--animation) * 35vw), calc(var(--y) * var(--animation) * 35vh))
+            scale(calc(1 - 0.5 * var(--animation)));
+        padding: var(--frame-padding);
+        background:
+            linear-gradient(45deg, var(--frame-background-1), var(--frame-background-2), var(--frame-background-1))
+                padding-box,
+            linear-gradient(45deg, var(--frame-border-1), var(--frame-border-2), var(--frame-border-1)) border-box;
+        border-radius: 1em;
+        //box-shadow: 2px 2px 3px #000;
+        border: 1px solid transparent;
 
-        //&:before,
+        --frame-inset-distance: calc(var(--frame-padding) / 2 - var(--frame-inset-width) / 2);
+
+        &:before {
+            content: " ";
+            display: block;
+            position: absolute;
+            left: var(--frame-inset-distance);
+            top: var(--frame-inset-distance);
+            width: var(--frame-size);
+            height: var(--frame-size);
+            border-top-left-radius: var(--radius-large);
+            border-bottom-left-radius: var(--frame-inset-width);
+            border-top-right-radius: var(--frame-inset-width);
+            border-left: var(--frame-inset-width) solid var(--frame-inset-color);
+            border-top: var(--frame-inset-width) solid var(--frame-inset-color);
+            pointer-events: none;
+        }
+
         &:after {
             content: " ";
             display: block;
             position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: var(--radius-large);
-            border: 1px solid rgba(0, 0, 0, 0.3);
-            box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.3) inset;
-            mix-blend-mode: overlay;
+            right: var(--frame-inset-distance);
+            bottom: var(--frame-inset-distance);
+            width: var(--frame-size);
+            height: var(--frame-size);
+            border-bottom-right-radius: var(--radius-large);
+            border-bottom-left-radius: var(--frame-inset-width);
+            border-top-right-radius: var(--frame-inset-width);
+            border-right: var(--frame-inset-width) solid var(--frame-inset-color);
+            border-bottom: var(--frame-inset-width) solid var(--frame-inset-color);
+            pointer-events: none;
+        }
+
+        .img-container {
+            position: relative;
+
+            &:after {
+                content: " ";
+                @include absolute(0);
+                border: 1px solid #ccc;
+                border-radius: var(--radius-large);
+                mix-blend-mode: overlay;
+            }
         }
 
         img {

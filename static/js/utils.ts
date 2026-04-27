@@ -1,5 +1,4 @@
-import { MonoTypeOperatorFunction, Observable, OperatorFunction, concat, connect, debounceTime, exhaustMap, filter, first, fromEvent, map, mapTo, merge, partition, race, scan, shareReplay, single, startWith, take, timer, takeUntil } from "rxjs";
-import { AnyDictionary, StringDictionary } from "./types";
+import { MonoTypeOperatorFunction, Observable, OperatorFunction, concat, connect, debounceTime, exhaustMap, filter, first, fromEvent, map, mapTo, merge, partition, race, scan, shareReplay, single, startWith, take, timer, takeUntil, animationFrames, takeWhile, endWith } from "rxjs";
 
 export const escapeHtml = (unsafe: string) => {
     return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
@@ -38,7 +37,12 @@ export type LoadEvents = {
     load: Event
 }
 
-export type Events = InputEvents & MouseEvents & TouchEvents & StorageEvents & StateEvents & ScrollEvents & LoadEvents;
+export type KeyEvents = {
+    keyup: KeyboardEvent,
+    keydown: KeyboardEvent,
+}
+
+export type Events = InputEvents & MouseEvents & TouchEvents & StorageEvents & StateEvents & ScrollEvents & LoadEvents & KeyEvents;
 
 type ScopedEventOptions<T> = {
     /**
@@ -331,8 +335,17 @@ export function debounceAfterFirst<T>(time: number, num: number = 1): MonoTypeOp
 export function observeMousePosition(element?: HTMLElement) {
     return fromDomEvent(element ?? document.documentElement, "mousemove").pipe(
         map(e => ({
-            x: e.pageX - element?.offsetLeft ?? 0,
-            y: e.pageY - element?.offsetTop ?? 0,
+            x: e.pageX - element.offsetLeft,
+            y: e.pageY - element.offsetTop,
+        }))
+    )
+}
+
+export function observeMousePositionOffset(element?: HTMLElement) {
+    return fromDomEvent(element ?? document.documentElement, "mousemove").pipe(
+        map(e => ({
+            x: e.offsetX,
+            y: e.offsetY,
         }))
     )
 }
@@ -367,4 +380,99 @@ export function observeMouseMovedThreshold2(element: HTMLElement, threshold = 5)
 
 export function toggleClass(element: HTMLElement, c: string) {
     return (visible: boolean) => element.classList.toggle(c, visible);
+}
+
+/**
+ * Observe when an image is loaded
+ * @param element 
+ * @returns 
+ */
+export function observeImageLoaded(element: HTMLImageElement) {
+    return fromEvent(element, "load").pipe(
+        map(e => element.complete),
+        startWith(element.complete),
+        filter(v => v),
+        first()
+    );
+}
+
+/**
+ * Observe a keyboard press
+ * @param code The button to test
+ * @param event Which key event to watch for. keydown or keyup
+ * @param repeating Whether to register repeating inputs or not
+ * @returns 
+ */
+export function observeKey(code: string, event: keyof KeyEvents = "keydown", repeating: boolean = false) {
+    return fromDomEvent(document, event).pipe(
+        filter(e => e.code == code && (!e.repeat || e.repeat == repeating))
+    );
+}
+
+/**
+ * Find the next  item given a list and a current item
+ * @param list 
+ * @param compare Test an item to see if it is the current
+ * @returns 
+ */
+export function findNext<T>(list: Iterable<T>, compare: (test: T) => boolean): T {
+    let next = null;
+    let found = false;
+    for (let element of list) {
+        next = next ?? element;
+        if (found) {
+            next = element;
+            break;
+        }
+        if (compare(element)) {
+            found = true;
+        }
+    }
+    return next;
+}
+
+/**
+ * Find the previous item given a list and a current item
+ * @param list 
+ * @param compare Test an item to see if it is the current
+ * @returns 
+ */
+export function findPrevious<T>(list: Iterable<T>, compare: (test: T) => boolean): T {
+    let previous: T = null;
+    for (let element of list) {
+        if (compare(element) && previous !== null)
+            break;
+        previous = element;
+    }
+    return previous;
+}
+
+function easeOutBack(x: number): number {
+    const c1 = 1.70158;
+    const c3 = c1 + 1;
+
+    return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+}
+
+/**
+ * Observable for an animation over values from start to end over duration
+ * @param durationSeconds How long to interpolate for in seconds
+ * @param start The starting value to interpolate from
+ * @param end End value to interpolate to
+ * @returns 
+ */
+export function animation(durationSeconds: number, options: {
+    start?: number;
+    end?: number;
+    curve?: (num: number) => number
+} = {}) {
+    const { start = 0, end = 1, curve = (num: number) => num } = options;
+
+    return animationFrames().pipe(
+        map(v => v.elapsed / (1000 * durationSeconds)),
+        takeWhile(v => v < 1),
+        map(easeOutBack),
+        map(v => start + (end - start) * v),
+        endWith(end)
+    );
 }

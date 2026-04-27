@@ -11,7 +11,7 @@ class StateEvent {
 
 const stateEvent$ = merge(
     of(window.location.pathname).pipe(
-        map(href => ({ type: "start", uri: href, state: null }))
+        map(href => ({ type: "start", uri: href, state: null as {} }))
     ),
     goToPage$.pipe(
         tap(([uri, state]) => history.pushState(state, "", uri)),
