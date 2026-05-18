@@ -1,0 +1,15 @@
+name: nginx-static-site
+
+services:
+  - name: client
+    environment_slug: docker
+    github:
+      repo: knighty/PHNPortfolio
+      branch: main
+
+    dockerfile_path: Dockerfile
+
+    http_port: 80
+
+    instance_count: 1
+    instance_size_slug: s-1vcpu-1gb
