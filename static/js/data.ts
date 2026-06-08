@@ -39,35 +39,44 @@ export default {
 			description: `<p>Versatility is probably one of the most important characteristics of a designer next to reliability. Being able to design for websites, print, media, in styles ranging from corporate professionalism to trendy markets ensures that no matter what your needs as a business are, they can be achieved.</p>`,
 			items: [
 				{
-					name: "Mired Media",
+					name: "McLaren 01",
+					img: require("/static/images/Graphic Design/McLaren_01.jpg?sizes=1000x300"),
+				},
+				{
+					name: "McLaren 02",
+					img: require("/static/images/Graphic Design/McLaren_02.jpg?sizes=1000x300"),
+				},
+
+				{
+					name: "Made From Skratch 01",
 					img: require("/static/images/Graphic Design/25_MFS_01.jpg?sizes=1000x300"),
 				},
 				{
-					name: "Mired Media",
+					name: "Made From Skratch 02",
 					img: require("/static/images/Graphic Design/25_MFS_02.jpg?sizes=1000x300"),
 				},
 				{
-					name: "Mired Media",
+					name: "Made From Skratch 03",
 					img: require("/static/images/Graphic Design/25_MFS_03.jpg?sizes=1000x300"),
 				},
 				{
-					name: "Mired Media",
+					name: "Aorus 01",
 					img: require("/static/images/Graphic Design/Aorus_01.jpg?sizes=1000x300"),
 				},
 				{
-					name: "Mired Media",
+					name: "Aorus 02",
 					img: require("/static/images/Graphic Design/Aorus_02.jpg?sizes=1000x300"),
 				},
 				{
-					name: "Mired Media",
+					name: "Seatcraft 01",
 					img: require("/static/images/Graphic Design/Seatcraft_01.jpg?sizes=1000x300"),
 				},
 				{
-					name: "Mired Media",
+					name: "Seatcraft 02",
 					img: require("/static/images/Graphic Design/Seatcraft_02.jpg?sizes=1000x300"),
 				},
 				{
-					name: "Mired Media",
+					name: "Seatcraft 03",
 					img: require("/static/images/Graphic Design/Seatcraft_03.jpg?sizes=1000x300"),
 				},
 				{
@@ -120,14 +129,6 @@ export default {
 				},
 				{
 					name: "EVGA King Of the Deep",
-					img: require("/static/images/Graphic Design/13_Brokers_04.jpg?sizes=1000x300"),
-				},
-				{
-					name: "EVGA King Of the Deep",
-					img: require("/static/images/Graphic Design/14_Brokers_05.jpg?sizes=1000x300"),
-				},
-				{
-					name: "EVGA King Of the Deep",
 					img: require("/static/images/Graphic Design/15_CMTC.jpg?sizes=1000x300"),
 				},
 				{
@@ -136,15 +137,11 @@ export default {
 				},
 				{
 					name: "EVGA King Of the Deep",
-					img: require("/static/images/Graphic Design/17_Lugersteel_01.jpg?sizes=1000x300"),
-				},
-				{
-					name: "EVGA King Of the Deep",
-					img: require("/static/images/Graphic Design/18_Lugersteel_02.jpg?sizes=1000x300"),
-				},
-				{
-					name: "EVGA King Of the Deep",
 					img: require("/static/images/Graphic Design/19_McLaren_01.jpg?sizes=1000x300"),
+				},
+{
+					name: "EVGA King Of the Deep",
+					img: require("/static/images/Graphic Design/19_McLaren_01a.jpg?sizes=1000x300"),
 				},
 				{
 					name: "EVGA King Of the Deep",
@@ -156,15 +153,7 @@ export default {
 				},
 				{
 					name: "EVGA King Of the Deep",
-					img: require("/static/images/Graphic Design/22_Tomee_01.jpg?sizes=1000x300"),
-				},
-				{
-					name: "EVGA King Of the Deep",
 					img: require("/static/images/Graphic Design/23_Winmax_01.jpg?sizes=1000x300"),
-				},
-				{
-					name: "EVGA King Of the Deep",
-					img: require("/static/images/Graphic Design/24_Winmax_02.jpg?sizes=1000x300"),
 				},
 			]
 		},
