@@ -277,50 +277,30 @@ export default {
 			]
 		},
 		{
-			name: "Visualization",
+			name: "Software",
 			cssVars: {
-				background: `url("${require("/static/images/Visualization/02_Turkey_01.jpg")}")`,
+				background: `url("${require("/static/images/Software/Photoshop_01.jpg")}")`,
 				//"accent-color": "#2196F3"
 			},
-			description: `<p>Sometimes, you just want to see what the product would look like before you spend the time and resources into making it happen. Visualization makes the theoretical a reality, letting you see what your end product could look like in the environment it was meant to be in.</p>`,
+			description: `<p>Mastery of industry-standard tools is essential to creating effective visual solutions. Explore the broad range of professional software used to support every stage of the creative process.</p>`,
 			items: [
 				{
-					name: "Brokers",
-					img: require("/static/images/Visualization/00_Brokers_01.jpg?sizes=1000x300"),
+					name: "Photoshop",
+					img: require("/static/images/Software/Software_01.jpg?sizes=1000x300"),
 				},
 				{
-					name: "Brokers",
-					img: require("/static/images/Visualization/01_Brokers_02.jpg?sizes=1000x300"),
+					name: "Illustrator",
+					img: require("/static/images/Software/Software_02.jpg?sizes=1000x300"),
 				},
 				{
-					name: "Turkey",
-					img: require("/static/images/Visualization/02_Turkey_01.jpg?sizes=1000x300"),
+					name: "After Effects",
+					img: require("/static/images/Software/Software_03.jpg?sizes=1000x300"),
 				},
 				{
-					name: "Lotus",
-					img: require("/static/images/Visualization/03_Lotus_01.jpg?sizes=1000x300"),
+					name: "Key Shot",
+					img: require("/static/images/Software/Software_04.jpg?sizes=1000x300"),
 				},
-				{
-					name: "Lotus",
-					img: require("/static/images/Visualization/04_Lotus_03.jpg?sizes=1000x300"),
-				},
-				{
-					name: "Lotus",
-					img: require("/static/images/Visualization/05_Lotus_02.jpg?sizes=1000x300"),
-				},
-				{
-					name: "Riptiders",
-					img: require("/static/images/Visualization/06_Rip_02.jpg?sizes=1000x300"),
-				},
-				{
-					name: "Riptiders",
-					img: require("/static/images/Visualization/07_Rip_03.jpg?sizes=1000x300"),
-				},
-				{
-					name: "Riptiders",
-					img: require("/static/images/Visualization/08_Rip_01.jpg?sizes=1000x300"),
-				},
-			]
+							]
 		},
 		{
 			name: "Illustration",
